@@ -13,9 +13,18 @@ public class Users {
         this.id = id;
         this.fullname = fullname;
         this.emailAddress = emailAddress;
-        Passcode = passcode;
-        DateOfBirth = dateOfBirth;
-        PhoneNumber = phoneNumber;
+        this.Passcode = passcode;
+        this.DateOfBirth = dateOfBirth;
+        this.PhoneNumber = phoneNumber;
+    }
+
+    public Users() {
+        this.id = 0;
+        this.fullname = null;
+        this.emailAddress = null;
+        this.Passcode = null;
+        this.DateOfBirth = null;
+        this.PhoneNumber = null;
     }
 
     public int getId() {

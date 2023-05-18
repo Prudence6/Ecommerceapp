@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Registration extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     EditText edtEmailAddyReg, edtFullnameDetailsReg, edtPasscodeSecureReg,edtDateOfBirthInfoReg, edtPhoneNumInfoReg;
     Button butnLoginReg, butnRegistrationReg;
@@ -33,9 +34,8 @@ public class Registration extends AppCompatActivity {
         butnLoginReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Registration.this, MainActivity.class);
+                Intent i = new Intent(RegistrationActivity.this, MainActivity.class);
                 startActivity(i);
-
             }
         });
 
@@ -54,7 +54,22 @@ public class Registration extends AppCompatActivity {
                     txtDisplaysInformReg.setText("Fill in all fields");
 
                 }else {
+                    Users newUser = new Users();
+                    newUser.setFullname(srFullname);
+                    newUser.setEmailAddress(srEmailAddress);
+                    newUser.setPasscode(srPasscode);
+                    newUser.setPhoneNumber(srPhoneNumber);
+                    newUser.setDateOfBirth(srDateOfBirth);
 
+
+                    DatabaseConn db = new DatabaseConn(getApplicationContext());
+                    db.addingAnyUser(newUser);
+
+                    // toast - user is succescfully registered
+                    Toast.makeText(getApplicationContext(), "registered successfully", Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent(RegistrationActivity.this, MainActivity.class);
+                    startActivity(i);
                 }
 
             }

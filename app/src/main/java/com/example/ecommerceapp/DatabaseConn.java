@@ -28,7 +28,7 @@ public class DatabaseConn extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query = "create table " + DatabaseTable + "(" + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ fullname + " TEXT, "+ emailAddress +" TEXT, " + passcode + " TEXT, " + DateOfBirth + " TEXT, " + PhoneNumber + " TEXT)";
+        String query = "create table " + DatabaseTable + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ fullname + " TEXT, "+ emailAddress +" TEXT, " + passcode + " TEXT, " + DateOfBirth + " TEXT, " + PhoneNumber + " TEXT)";
 
         sqLiteDatabase.execSQL(query);
     }
@@ -48,7 +48,6 @@ public class DatabaseConn extends SQLiteOpenHelper {
         values.put(PhoneNumber, user.getPhoneNumber());
         values.put(DateOfBirth, user.getDateOfBirth());
         database.insert(DatabaseTable, null, values);
-
     }
 
 }

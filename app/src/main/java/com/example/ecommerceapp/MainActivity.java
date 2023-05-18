@@ -10,29 +10,26 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtEmailAddyLog, edtPasscodeSecureLog;
-    Button butnLoginLog, butnRegisterLog;
+    Button butnShopHere;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        edtEmailAddyLog = findViewById(R.id.edtEmailAddyLog);
-        edtPasscodeSecureLog = findViewById(R.id.edtPasscodeSecureLog);
-        butnLoginLog = findViewById(R.id.butnLoginLog);
-        butnRegisterLog = findViewById(R.id.butnRegisterlog);
+        //if the user is logged in start shopping if not go to login
 
-
-        butnRegisterLog.setOnClickListener(new View.OnClickListener() {
+        butnShopHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(MainActivity.this, Registration.class);
-                startActivity(i);
+
 
             }
         });
+
+
 
 
     }
